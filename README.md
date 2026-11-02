@@ -25,3 +25,12 @@
 
 ## Важно
 Аккаунты, деньги, Gold и скины хранятся в браузере игрока (localStorage), а не на сервере.
+
+## Вход через Google
+1. Открой https://console.cloud.google.com → создай проект.
+2. «APIs & Services» → «OAuth consent screen» → тип External → заполни название и почту → сохрани.
+3. «Credentials» → «Create credentials» → «OAuth client ID» → тип «Web application».
+   В «Authorized JavaScript origins» добавь адрес сайта, например https://rjynhf.onrender.com
+4. Скопируй «Client ID».
+5. В Render: сервис → Environment → Add variable: `GOOGLE_CLIENT_ID` = скопированный ID → Save.
+После перезапуска на экране входа появится кнопка «Continue with Google».

@@ -10,7 +10,28 @@ const PUB = path.join(__dirname, 'public');
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json', '.zip': 'application/zip' };
 
+// ===== вход через Google =====
+// Чтобы включить: в Render → Environment добавь переменную GOOGLE_CLIENT_ID (ID клиента OAuth из Google Cloud).
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
+function json(res, code, o) { res.writeHead(code, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' }); res.end(JSON.stringify(o)); }
+async function googleAuth(req, res) {
+  let body = '';
+  req.on('data', c => { body += c; if (body.length > 10000) req.destroy(); });
+  req.on('end', async () => {
+    try {
+      const { credential } = JSON.parse(body || '{}');
+      if (!GOOGLE_CLIENT_ID || typeof credential !== 'string') return json(res, 400, { error: 'bad_request' });
+      const r = await fetch('https://oauth2.googleapis.com/tokeninfo?id_token=' + encodeURIComponent(credential));
+      const t = await r.json();
+      if (!r.ok || t.aud !== GOOGLE_CLIENT_ID || String(t.email_verified) !== 'true' || !t.email) return json(res, 401, { error: 'invalid_token' });
+      json(res, 200, { email: String(t.email).toLowerCase(), name: String(t.given_name || t.name || '') });
+    } catch (e) { json(res, 500, { error: 'server_error' }); }
+  });
+}
+
 const server = http.createServer((req, res) => {
+  if (req.url === '/config.json') return json(res, 200, { googleClientId: GOOGLE_CLIENT_ID });
+  if (req.url === '/auth/google' && req.method === 'POST') return googleAuth(req, res);
   let url;
   try { url = decodeURIComponent(req.url.split('?')[0]); } catch (e) { res.writeHead(400); return res.end(); }
   if (url === '/') url = '/index.html';
