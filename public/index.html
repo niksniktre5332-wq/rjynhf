@@ -6,6 +6,7 @@
 <title>Контра — онлайн-шутер в браузере</title>
 <meta name="description" content="Контра — бесплатный 3D онлайн-шутер прямо в браузере: 69 пушек, 29 карт, ящики, Gold-скины, кланы и игра с друзьями.">
 <meta name="theme-color" content="#0b0f14">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Контра">
 <style>
 :root{--bg:#0b0f14;--card:#141b24;--line:#ffffff1a;--txt:#e9eef4;--mut:#9aa6b4;--gold:#f5c05a;--gold2:#ffd700;--ct:#4a8cff;--t:#ff9a3c}
 *{box-sizing:border-box}
@@ -42,7 +43,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-siz
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="logo" href="/"><i>⌖</i>КОНТРА</a><nav><a href="#features">Игра</a><a href="#shots">Скриншоты</a><a href="#gold">Gold</a><a href="#how">Как играть</a><a class="btn sm" href="/play">▶ Играть</a></nav></div></header>
+<header><div class="wrap"><a class="logo" href="/"><i>⌖</i>КОНТРА</a><nav><a href="#features">Игра</a><a href="#shots">Скриншоты</a><a href="#gold">Gold</a><a href="#how">Как играть</a><a class="btn sm" href="#download">📥 Скачать</a></nav></div></header>
 
 <div class="hero">
   <img class="bg" src="img/map3.jpg" alt="">
@@ -50,15 +51,15 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-siz
     <h1>КОНТРА</h1>
     <p>Командный 3D-шутер прямо в браузере. Спецназ против террористов, закладка бомбы, дуэли и бои с друзьями онлайн. Без установки и бесплатно.</p>
     <div class="tags"><span>💣 Закладка бомбы 5×5</span><span>🔫 Командный бой</span><span>⚔ Дуэли 1×1 и 2×2</span><span>🌐 Только онлайн</span><span>📱 Компьютер и телефон</span></div>
-    <a class="btn" href="/play">▶ ИГРАТЬ БЕСПЛАТНО</a>
+    <a class="btn" href="#download">📥 СКАЧАТЬ ИГРУ</a>
   </div>
 </div>
 
 <section id="features"><div class="wrap">
   <h2>Что внутри</h2><p class="sub">Всё, что нужно для настоящей перестрелки.</p>
   <div class="grid">
-    <div class="card"><div class="n">69</div><b>пушек</b><p>Пистолеты, ПП, автоматы, дробовики, пулемёты, снайперки и Gold-оружие. Каждую видно до покупки.</p></div>
-    <div class="card"><div class="n">29</div><b>карт</b><p>Пустыня, Метро, Вулкан, Марс, Замок, Ночной город — у каждой своя планировка.</p></div>
+    <div class="card"><div class="n">86</div><b>пушек</b><p>Пистолеты, ПП, автоматы, дробовики, пулемёты, снайперки и Gold-оружие. Каждую видно до покупки.</p></div>
+    <div class="card"><div class="n">37</div><b>карт</b><p>Пустыня, Метро, Вулкан, Марс, Замок, Ночной город — у каждой своя планировка.</p></div>
     <div class="card"><div class="n">24</div><b>ящика</b><p>Ящики за игровые рубли и за Gold. Скины на оружие и ножи можно купить в магазине — ножи очень дорогие.</p></div>
     <div class="card"><div class="n">🎨</div><b>Граффити</b><p>Рисуй теги на стенах клавишей <kbd>G</kbd>. Они остаются до конца матча и видны всем.</p></div>
     <div class="card"><div class="n">🔍</div><b>3D-осмотр</b><p>Крути любой скин в инвентаре, рассматривай со всех сторон.</p></div>
@@ -86,10 +87,24 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-siz
   </div>
 </div></section>
 
+<section id="download"><div class="wrap">
+  <div class="card gold" style="text-align:center">
+    <h2>📥 Скачать игру</h2>
+    <p class="sub" style="margin:6px 0 18px">Контра устанавливается как приложение: своя иконка, запуск на весь экран. В обычной вкладке браузера игра не открывается.</p>
+    <button class="btn" id="inst" style="border:none;cursor:pointer;font-family:inherit">📥 УСТАНОВИТЬ</button>
+    <p id="instMsg" style="margin:14px 0 0;color:var(--txt);font-size:18px"></p>
+    <div class="grid" style="margin-top:22px;text-align:left">
+      <div class="card"><b>💻 Компьютер (Windows, Mac)</b><p>Открой сайт в <b>Chrome</b> или <b>Edge</b> и нажми «Установить». Игра появится на рабочем столе и в меню «Пуск».</p></div>
+      <div class="card"><b>🤖 Android</b><p>Открой сайт в <b>Chrome</b>, нажми «Установить» и подтверди. Иконка появится на главном экране.</p></div>
+      <div class="card"><b> iPhone и iPad</b><p>Открой сайт в <b>Safari</b>, нажми <b>«Поделиться» ⬆</b>, затем <b>«На экран «Домой»»</b> и «Добавить». Запускай игру с иконки.</p></div>
+    </div>
+  </div>
+</div></section>
+
 <section id="how"><div class="wrap">
   <h2>Как играть с другом</h2><p class="sub">Игра идёт только онлайн — нужен хотя бы один соперник.</p>
   <div class="steps">
-    <div>Нажми <b>«Играть»</b> и создай аккаунт: через Google или любую почту (Gmail, iCloud, Mail.ru, Яндекс) и ник.</div>
+    <div><b>Скачай игру</b> (раздел выше), запусти её с иконки и создай аккаунт: через Face ID / отпечаток или любую почту и ник.</div>
     <div>Открой <b>👥 Друзья</b> и нажми «Моя комната». Скажи другу свой ID из 8 цифр.</div>
     <div>Друг вводит твой ID и нажимает «Войти». Выберите одну карту и режим и разные команды.</div>
     <div>Управление: <kbd>WASD</kbd> движение, мышь прицел, <kbd>ЛКМ</kbd> огонь, <kbd>R</kbd> перезарядка, <kbd>B</kbd> закупка, <kbd>G</kbd> граффити, <kbd>Пробел</kbd> прыжок.</div>
@@ -98,9 +113,18 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-siz
 
 <section class="cta"><div class="wrap">
   <h2>Готов к бою?</h2><p class="sub">Заходи, зови друзей — первый раунд уже ждёт.</p>
-  <a class="btn" href="/play">▶ ИГРАТЬ</a>
+  <a class="btn" href="#download">📥 СКАЧАТЬ ИГРУ</a>
 </div></section>
 
 <footer><div class="wrap">© Контра. Скины, ящики и валюта — виртуальные предметы без реальной стоимости.</div></footer>
+<script>
+let dp=null;const ib=document.getElementById('inst'),im=document.getElementById('instMsg'),ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').catch(()=>{});
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;im.textContent='Нажми «Установить» — это бесплатно и займёт пару секунд.'});
+addEventListener('appinstalled',()=>{im.textContent='✅ Игра установлена! Открой «Контра» с рабочего стола или главного экрана.'});
+ib.onclick=async()=>{if(dp){dp.prompt();const r=await dp.userChoice;dp=null;im.textContent=r.outcome==='accepted'?'✅ Устанавливается… Потом открой «Контра» с рабочего стола или главного экрана.':'Установка отменена — нажми ещё раз, когда будешь готов.';return}
+im.innerHTML=ios?'На iPhone: нажми <b>«Поделиться» ⬆</b> внизу Safari → <b>«На экран «Домой»»</b> → «Добавить».':'Кнопка установки появится в <b>Chrome</b> или <b>Edge</b>. Если игра уже установлена — открой её с рабочего стола. Также можно нажать значок установки ⊕ в адресной строке.'};
+if(location.hash==='#download'&&new URLSearchParams(location.search).get('from')==='play')im.textContent='Чтобы играть, сначала установи игру 👇';
+</script>
 </body>
 </html>

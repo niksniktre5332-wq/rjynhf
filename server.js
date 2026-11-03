@@ -8,7 +8,7 @@ const { WebSocketServer } = require('ws');
 const PORT = process.env.PORT || 3000;
 const PUB = path.join(__dirname, 'public');
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
-  '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json', '.zip': 'application/zip' };
+  '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.json': 'application/json', '.zip': 'application/zip', '.webmanifest': 'application/manifest+json' };
 
 // ===== вход через Google =====
 // Чтобы включить: в Render → Environment добавь переменную GOOGLE_CLIENT_ID (ID клиента OAuth из Google Cloud).
