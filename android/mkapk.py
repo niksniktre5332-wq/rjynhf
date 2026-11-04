@@ -108,12 +108,14 @@ def build_arsc(pkg_name, icon_path):
     return struct.pack('<HHII', 0x0002, 12, 12 + len(body), 1) + body
 
 
+ASSETS = []
+
 def main(icon_png, out_apk):
     A = True
     manifest = ('manifest', [
         (None, 'package', T_STR, 'com.kontra.game'),
-        (A, 'versionCode', T_DEC, 3),
-        (A, 'versionName', T_STR, '1.2'),
+        (A, 'versionCode', T_DEC, 4),
+        (A, 'versionName', T_STR, '1.3'),
     ], [
         ('uses-sdk', [(A, 'minSdkVersion', T_DEC, 21), (A, 'targetSdkVersion', T_DEC, 29)], []),
         ('uses-permission', [(A, 'name', T_STR, 'android.permission.INTERNET')], []),
@@ -144,9 +146,14 @@ def main(icon_png, out_apk):
         zi = zipfile.ZipInfo('resources.arsc', (2024, 1, 1, 0, 0, 0)); zi.compress_type = zipfile.ZIP_STORED
         z.writestr(zi, build_arsc('com.kontra.game', icon_res))
         z.write('classes.dex', 'classes.dex', zipfile.ZIP_DEFLATED)
+        for src, dst in ASSETS:
+            z.write(src, 'assets/' + dst, zipfile.ZIP_DEFLATED)
         zi = zipfile.ZipInfo(icon_res, (2024, 1, 1, 0, 0, 0)); zi.compress_type = zipfile.ZIP_STORED
         z.writestr(zi, open(icon_png, 'rb').read())
 
 
 if __name__ == '__main__':
+    for a in sys.argv[3:]:
+        src, dst = a.split('=')
+        ASSETS.append((src, dst))
     main(sys.argv[1], sys.argv[2])
